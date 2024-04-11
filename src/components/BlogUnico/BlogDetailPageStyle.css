@@ -1,0 +1,29 @@
+.blog-detail-container {
+    margin: 20px auto; 
+    width: 80%; 
+    text-align: center; 
+  }
+  
+  .centered {
+    text-align: center; 
+    margin-bottom: 10px; 
+    margin-top:2rem;
+  }
+  
+  img.centered {
+    display: block; 
+    margin: 0 auto; 
+    max-width: 50%; 
+    height: auto; 
+  }
+  
+  
+  .ingredient-container {
+    width: 50%; 
+    margin: auto; 
+    margin-top:3rem;
+}
+ul{
+  text-align: left;
+}
+
