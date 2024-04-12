@@ -23,7 +23,7 @@ const CompEditBlog = () => {
     useEffect(() => {
         const getBlogById = async () => {
             try {
-                const res = await axios.get(`${URI}${id}`);
+                const res = await axios.get(`${URI}/${id}`);
                 setTitle(res.data.title);
                 setIngredient(res.data.ingredient);
                 setContent(res.data.content);
@@ -48,7 +48,7 @@ const CompEditBlog = () => {
         console.log('Datos a enviar:', formData); // 
     
         try {
-            await axios.put(`${URI}${id}`, formData, {
+            await axios.put(`${URI}/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
