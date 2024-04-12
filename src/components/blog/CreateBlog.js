@@ -9,7 +9,7 @@ const URI = 'http://localhost:8000/blogs/'
 
 const CompCreateBlog = () => {
     const [title,setTitle]= useState('')
-    const [ingredient,setIngredient]= useState('')
+    const [ingredient, setIngredient]= useState('')
     const [content,setContent]= useState('')
     const [image, setImage] = useState(null);
 
@@ -26,7 +26,7 @@ const CompCreateBlog = () => {
           
             const formData = new FormData();
             formData.append('title', title);
-            formData.append('ingredient', setIngredient);
+            formData.append('ingredient', ingredient);
             formData.append('content', content);
             formData.append('image_url', image);
           
