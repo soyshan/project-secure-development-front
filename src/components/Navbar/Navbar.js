@@ -7,6 +7,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -30,9 +31,9 @@ const Navbar = () => {
           <li>
             <Link to='/contact' className='nav-link'>Contacto</Link>
           </li>
-          <li>
-          <UserIcon className='user-icon' />
-          </li>
+          
+              <UserIcon className='user-icon' />
+           
         </ul>
       </div>
     </nav>

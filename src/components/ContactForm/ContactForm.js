@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import './ContactFormStyle.css'
-
+import './ContactFormStyle.css';
+import axios from 'axios'; // Importa Axios para realizar la solicitud HTTP
 
 function ContactForm() {
   const [formData, setFormData] = useState({
-    nombre: '',
+    name: '',
     email: '',
-    mensaje: ''
+    message: '',
+    campoOculto1: '',
+    campoOculto2: ''
   });
 
+  
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,38 +23,47 @@ function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (formData.campoOculto1 || formData.campoOculto2) {
+      setError('Error: Eres un bot 😒');
+      setSubmitted(false); 
+    } else {
+
+    try {
+      const response = await axios.post('http://localhost:8000/contact', formData); // Realiza la solicitud POST al backend
+      console.log(response.data); // Puedes manejar la respuesta del servidor aquí
+      setSubmitted(true);
+    } catch (error) {
+      setError('Hubo un error al enviar el formulario.'); // Manejo de errores
+      setSubmitted(false);
+    }
+  }
   };
 
   return (
     <div className='confirmation'>
-      {submitted ? (
+      {submitted && !error ? (
         <div>
-        <br/>
-        <br/>
-        <br/>
           <h2>¡Gracias por tu mensaje!</h2>
           <p>Nos pondremos en contacto contigo pronto.</p>
-          <br/>
-          <br/>
-          <br/>
         </div>
       ) : (
         <form className="container-form" onSubmit={handleSubmit}>
+          <input type="hidden" name="campoOculto1" value={formData.campoOculto1} />
+          <input type="hidden" name="campoOculto2" value={formData.campoOculto2} />
           <div>
             <label htmlFor="nombre">Nombre:</label>
             <input
               type="text"
               id="nombre"
-              name="nombre"
-              value={formData.nombre}
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
-          <div >
+          <div>
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -59,20 +72,23 @@ function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
+              maxLength="100"
             />
           </div>
           <div>
             <label htmlFor="mensaje">Mensaje:</label>
             <textarea
               id="mensaje"
-              name="mensaje"
-              value={formData.mensaje}
+              name="message"
+              value={formData.message}
               onChange={handleChange}
               rows="4"
               required
+              maxLength="400"
             ></textarea>
           </div>
           <div>
+            {error && <p className="error-message">{error}</p>}
             <button className="button-form" type="submit">Enviar</button>
           </div>
         </form>
