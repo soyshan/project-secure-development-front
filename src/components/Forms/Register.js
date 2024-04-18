@@ -29,7 +29,7 @@ const RegisterForm = () => {
       setError('Debes completar el ReCAPTCHA antes de registrarte.');
       return;
     }
-    
+
     try {
       const response = await axios.post('http://localhost:8000/auth/register', { firstName, lastName, username,  email, password });
       window.location.href = '/showblogs';
@@ -139,7 +139,7 @@ const RegisterForm = () => {
                         </label>
                       </div>
                       <ReCAPTCHA
-    sitekey="6LepbL8pAAAAAGU9IE_bp24zv4DZ2L0Jg07ew6UO" // Reemplaza con tu clave del sitio cliente
+    sitekey="6LepbL8pAAAAAGU9IE_bp24zv4DZ2L0Jg07ew6UO" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }} // Reemplaza con tu clave del sitio cliente
     onChange={onChange} // Define la función onChange para manejar los cambios en el ReCAPTCHA
   />
 
