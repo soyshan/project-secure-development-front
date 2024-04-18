@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; // Importar Link desde react-router-dom
+import ReCAPTCHA from "react-google-recaptcha";
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -10,12 +11,22 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [recaptchaCompleted, setRecaptchaCompleted] = useState(false);
 
+  const onChange = (value) => {
+    console.log("Captcha value:", value);
+    setRecaptchaCompleted(true);
+  };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!termsAccepted) { // Verificar si los términos y condiciones están aceptados
       setError('Debes aceptar los términos y condiciones para registrarte.');
+      return;
+    }
+    if (!recaptchaCompleted) { // Verificar si el ReCAPTCHA ha sido completado
+      setError('Debes completar el ReCAPTCHA antes de registrarte.');
       return;
     }
     
@@ -127,6 +138,13 @@ const RegisterForm = () => {
                           Acepto los <Link to="#terminos">términos y condiciones</Link>
                         </label>
                       </div>
+                      <ReCAPTCHA
+    sitekey="6LepbL8pAAAAAGU9IE_bp24zv4DZ2L0Jg07ew6UO" // Reemplaza con tu clave del sitio cliente
+    onChange={onChange} // Define la función onChange para manejar los cambios en el ReCAPTCHA
+  />
+
+
+
 
                       <div className="pt-1 mb-4">
                         <button className="btn btn-dark btn-lg btn-block" type="submit">Registrarse</button>
