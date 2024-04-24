@@ -14,7 +14,7 @@
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await axios.post("http://localhost:8000/auth/login", {
+//       const response = await axios.post("https://project-secure-development-back.onrender.com/auth/login", {
 //         email,
 //         password,
 //       });
@@ -123,7 +123,7 @@ function LoginComponent() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:8000/auth/login", data);
+      const response = await axios.post("https://project-secure-development-back.onrender.com/auth/login", data);
       const userData = response.data;
       login(userData);
       setIsLoggedIn(true);

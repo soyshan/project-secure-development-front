@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 
-const URI = 'http://localhost:8000/blogs/'
+const URI = 'https://project-secure-development-back.onrender.com/blogs/'
 
 
 const CompCreateBlog = () => {

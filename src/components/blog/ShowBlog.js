@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-const URI = 'http://localhost:8000/blogs/';
+const URI = 'https://project-secure-development-back.onrender.com/blogs';
 
 const CompShowRecetas = () => {
     const [recetas, setRecetas] = useState([]);
@@ -64,7 +64,7 @@ const CompShowRecetas = () => {
                                     <td>{receta.ingredient}</td>
                                     <td>{receta.content}</td>
                                     <td>
-                                        <img src={`http://localhost:8000/${receta.image_url}`} alt="receta" style={{ maxWidth: "100px", maxHeight: "100px" }}  />
+                                        <img src={`https://project-secure-development-back.onrender.com/${receta.image_url}`} alt="receta" style={{ maxWidth: "100px", maxHeight: "100px" }}  />
                                     </td>
                                     <td>
                                         <Link to={`/edit/${receta._id}`} className="btn btn-info">

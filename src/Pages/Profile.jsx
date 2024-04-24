@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8000/auth/logout'); // Realiza una solicitud al endpoint de logout del backend
+      await axios.post('https://project-secure-development-back.onrender.com/auth/logout'); // Realiza una solicitud al endpoint de logout del backend
       logout(); // Llama a la función de logout del contexto de autenticación
       return <Navigate to="/login" />;
     } catch (error) {
@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
 
   return (
-    <div className="container mt-5 justify-content-center">
+    <div className="container mt-5 justify-content-center vh-70">
        <div className="row justify-content-center">
        <div className="col-md-8 ">
       <div className="card">

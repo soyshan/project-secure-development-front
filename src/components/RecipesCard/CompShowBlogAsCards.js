@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import BlogCard from './BlogCard';
 
-const URI = 'http://localhost:8000/blogs/';
+const URI = 'https://project-secure-development-back.onrender.com/blogs/';
 
 const CompShowBlogsAsCards = () => {
     const [blogs, setBlogs] = useState([]);

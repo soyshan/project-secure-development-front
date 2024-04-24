@@ -3,7 +3,7 @@ import axios from "axios";
 import './UserPage.css';
 axios.defaults.withCredentials = true;
 
-const URI = 'http://localhost:8000/users/users';
+const URI = 'https://project-secure-development-back.onrender.com/users/users';
 
 const UserPage = () => {
     const [users, setUsers] = useState([]);
