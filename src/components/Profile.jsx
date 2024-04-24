@@ -1,41 +1,43 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // Importa useAuth desde AuthContext
+import { Navigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
 
 const ProfilePage = () => {
-  const { user, logout } = useAuth(); // Usa useAuth para acceder al contexto de autenticación y la función logout
+  const { user, logout } = useAuth();
 
-  // Verificar si el usuario está autenticado
   if (!user) {
-    // Si el usuario no está autenticado, redirigirlo al inicio de sesión
     return <Navigate to="/login" />;
   }
 
-  // Función para manejar el logout
   const handleLogout = () => {
-    logout(); // Llama a la función de logout del contexto de autenticación
-    return <Navigate to="/login" />; // Redirige al usuario al inicio de sesión
+    logout();
+    return <Navigate to="/login" />;
   };
 
-  // Renderiza la página de perfil
   return (
-    <div class="max-w-screen-md mx-auto mt-16">
-       <div class="card p-6 bg-white shadow-md rounded-lg">
-        <div className="flex flex-col items-center justify-center">
-          {/* <img className="w-24 h-24 rounded-full mb-4" src={user.profileImage} alt="Avatar" /> */}
-          <h2 className="text-xl font-semibold">{user.name}</h2>
-          <p className="text-sm text-gray-500">{user.role}</p>
-        </div>
-        <div className="mt-6">
-          <div className="flex justify-between">
-            <button className="text-sm text-gray-700 hover:text-gray-900 focus:outline-none" onClick={handleLogout}>
-              Logout
-            </button>
-            <a href="/blogs" className="text-sm text-blue-500 hover:underline">
-              Mis blogs
-            </a>
+    <div className="container mt-5 justify-content-center">
+       <div className="row justify-content-center">
+       <div className="col-md-8 ">
+      <div className="card">
+        <div className="card-body">
+          <div className="row">
+            <div className="col-md-12">
+              {/* Replace 'user.profileImage' with the actual source of user's profile image */}
+              <img src="https://images.unsplash.com/photo-1708261432863-41fdab7b5de9?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile" className="img-fluid rounded-circle" style={{ maxWidth: "200px", maxHeight: "200px" }}  />
+            </div>
+            <div className="col-md-12">
+              <h2>{user.name}</h2>
+              <p className="text-muted">{user.email}</p>
+              <div className="d-flex justify-content-between">
+                <Link to="/showblogs" className="btn btn-primary">Mis blogs</Link>
+                <button className="btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </div>
   );

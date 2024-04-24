@@ -13,8 +13,8 @@ import BlogDetailPage from './components/BlogUnico/BlogDetailPage';
 import ContactForm from './components/ContactForm/ContactForm';
 import Home from './components/Home/Home';
 import Footer from './components/footer/footer';
-import LoginForm from './components/Forms/LoginForm';
-import RegisterForm from './components/Forms/Register';
+import LoginForm from './Pages/LoginForm';
+import RegisterForm from './Pages/Register';
 import {AuthProvider} from './context/AuthContext';
 import ProfilePage from './components/Profile';
 
