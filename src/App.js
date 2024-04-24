@@ -16,7 +16,8 @@ import Footer from './components/footer/footer';
 import LoginForm from './Pages/LoginForm';
 import RegisterForm from './Pages/Register';
 import {AuthProvider} from './context/AuthContext';
-import ProfilePage from './components/Profile';
+import ProfilePage from './Pages/Profile';
+import AdminProfilePage from './Pages/AdminProfile';
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path= "/profile" element = {<ProfilePage />} />
+          <Route path= "/admin-profile" element = {<AdminProfilePage />} />
         </Routes>
         <Footer />
         </AuthProvider>
