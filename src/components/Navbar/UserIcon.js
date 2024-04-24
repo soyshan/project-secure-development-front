@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import userIcon from '../../assets/user-icon-vector.svg';
-
+import userIcon from '../../assets/user-icon.png';
 import userLoggedInIcon from '../../assets/user-icon.png';
+import { useAuth } from '../../context/AuthContext'; // Importamos el hook useAuth
+import './UserMenu.css';
 
-const UserIcon = ({ isAuthenticated }) => {
+const UserIcon = () => {
+  const { user, logout } = useAuth(); // Obtenemos el usuario y la función logout del contexto de autenticación
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar si el menú está abierto
+
+  const handleLogout = () => {
+    logout(); // Llamamos a la función logout del contexto de autenticación
+  };
+
+  const handleIconClick = () => {
+    // Si el usuario no está autenticado, redirigir al formulario de inicio de sesión
+    if (!user) {
+      window.location.href = '/login';
+    } else {
+      // Alternamos el estado del menú si el usuario ha iniciado sesión
+      setIsMenuOpen(!isMenuOpen);
+    }
+  };
+
   return (
-    <Link to={isAuthenticated ? "/profile" : "/login"} className="user-icon">
-      <img src={isAuthenticated ? userLoggedInIcon : userIcon} alt='Cuenta' /> 
-    </Link>
+    <div className="user-icon-wrapper">
+      <div className="user-icon" onClick={handleIconClick}>
+        {/* Comprobamos si hay un usuario autenticado para mostrar el icono correspondiente */}
+        <img src={user ? userLoggedInIcon : userIcon} alt="Cuenta" />
+      </div>
+      {/* Mostramos el menú desplegable solo si está abierto y el usuario está autenticado */}
+      {user && isMenuOpen && (
+        <ul className="user-menu">
+          {/* Mostramos las opciones de perfil y cerrar sesión si el usuario está autenticado */}
+          <li>
+            <Link to="/profile">Mi Perfil</Link>
+          </li>
+          <li>
+            <button onClick={handleLogout}>Cerrar Sesión</button>
+          </li>
+        </ul>
+      )}
+    </div>
   );
 };
 

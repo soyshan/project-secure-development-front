@@ -10,6 +10,7 @@
   align-items: center;
 }
 
+
 .logo {
   text-decoration: none;
   color: #333;
@@ -40,10 +41,14 @@
 .user-icon {
  width: 5px;
 }
-
+.user-icon img {
+  max-width: 24px;
+}
 .nav-toggle {
   display: none; /* para ocultar el icono de hamburguesa por defecto */
 }
+
+
 
 @media (max-width: 768px) {
   .nav-toggle {

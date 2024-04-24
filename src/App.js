@@ -15,11 +15,17 @@ import Home from './components/Home/Home';
 import Footer from './components/footer/footer';
 import LoginForm from './components/Forms/LoginForm';
 import RegisterForm from './components/Forms/Register';
+import {AuthProvider} from './context/AuthContext';
+import ProfilePage from './components/Profile';
+
+
 
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
+      <AuthProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,9 +37,12 @@ function App() {
           <Route path="/contact" element={<ContactForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
+          <Route path= "/profile" element = {<ProfilePage />} />
         </Routes>
         <Footer />
+        </AuthProvider>
       </BrowserRouter>
+      
     </div>
   );
 }
