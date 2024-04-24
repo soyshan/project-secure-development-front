@@ -18,7 +18,7 @@ import RegisterForm from './Pages/Register';
 import {AuthProvider} from './context/AuthContext';
 import ProfilePage from './Pages/Profile';
 import AdminProfilePage from './Pages/AdminProfile';
-
+import UserPage from './Pages/UserPage';
 
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
           <Route path= "/profile" element = {<ProfilePage />} />
           <Route path= "/admin-profile" element = {<AdminProfilePage />} />
+          <Route path= "/users" element = {<UserPage />} />
         </Routes>
         <Footer />
         </AuthProvider>
