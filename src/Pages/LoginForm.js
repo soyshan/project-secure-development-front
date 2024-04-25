@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 function LoginComponent() {
@@ -84,9 +84,11 @@ function LoginComponent() {
                       </div>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         ¿No tienes una cuenta?{" "}
-                        <a href="/register" className="btn btn-link">
+                        
+                        <Link to="/register" className="btn btn-link">
                           Regístrate aquí
-                        </a>
+                        </Link>
+
                       </p>
                     </form>
                   </div>

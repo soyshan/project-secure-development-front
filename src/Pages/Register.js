@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import { registerRequest } from '../api/auth'; // Asegúrate de que la ruta sea correcta
 
@@ -24,7 +24,7 @@ const RegisterForm = () => {
     try {
       const response = await registerRequest(data); // Utiliza registerRequest en lugar de axios.post
       if (response.status === 200)
-        window.location.href = '/showblogs';
+      return <Navigate to="/showblogs" />;
     } catch (error) {
       setError('Error al registrar el usuario');
     }

@@ -50,8 +50,8 @@ function ContactForm() {
         </div>
       ) : (
         <form className="container-form" onSubmit={handleSubmit}>
-          <input type="hidden" name="campoOculto1" value={formData.campoOculto1} />
-          <input type="hidden" name="campoOculto2" value={formData.campoOculto2} />
+          <input className= "hidden" type="text" name="campoOculto1" value={formData.campoOculto1} />
+          <input className= "hidden" type="text" name="campoOculto2" value={formData.campoOculto2} />
           <div>
             <label htmlFor="nombre">Nombre:</label>
             <input
