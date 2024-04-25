@@ -16,7 +16,7 @@ const Carousel = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-        <Link to="http://localhost:3000/blogs/38">
+        <Link to="https://project-secure-development-front.onrender.com/blogs/662a384306e9ced5b3d554c9">
           <img src= {matcha}className="d-block w-100" alt="First slide" style={{ maxHeight: '500px', objectFit: 'cover' }} />
           <div className="carousel-caption d-none d-md-block">
           <h4 className="caption-style">Helado de Té Matcha con Azuki.<br/> Delicia Japonesa en Casa</h4>
@@ -26,7 +26,7 @@ const Carousel = () => {
         </div>
 
         <div className="carousel-item">
-        <Link to="http://localhost:3000/blogs/36">
+        <Link to="https://project-secure-development-front.onrender.com/blogs/6617d58b8e84e79548330a8c">
           <img src={Pollo} className="d-block w-100" alt="Second slide" style={{ maxHeight: '500px', objectFit: 'cover' }} />
           <div className="carousel-caption d-none d-md-block">
           <h4 className="caption-style">Pollo frito al estilo asiático <br/> Ideal para acompañar con arroz</h4>
@@ -34,7 +34,7 @@ const Carousel = () => {
           </Link>
         </div>
         <div className="carousel-item">
-        <Link to="http://localhost:3000/blogs/28">
+        <Link to="http://https://project-secure-development-front.onrender.com/blogs/6617d58b8e84e79548330a88">
           <img src={rollos} className="d-block w-100" alt="Third slide" style={{ maxHeight: '500px', objectFit: 'cover' }} />
           <div className="carousel-caption d-none d-md-block">
           <h4 className="caption-style">Descubre el Sabor Único del Gimbap <br/> Un plato tradicional de Corea</h4>
