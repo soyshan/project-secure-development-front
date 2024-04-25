@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const URI = 'https://project-secure-development-back.onrender.com/blogs/';
+const URI = 'https://project-secure-development-back.onrender.com/blogs';
 
 const CompEditBlog = () => {
     const [title, setTitle] = useState('');
