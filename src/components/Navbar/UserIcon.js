@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, navigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import userIcon from '../../assets/user-icon.png';
 import userLoggedInIcon from '../../assets/user-icon.png';
 import { useAuth } from '../../context/AuthContext'; // Importamos el hook useAuth
@@ -8,7 +8,7 @@ import './UserMenu.css';
 const UserIcon = () => {
   const { user, logout } = useAuth(); // Obtenemos el usuario y la función logout del contexto de autenticación
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar si el menú está abierto
-
+  const navigate = useNavigate();
 
 
   const handleLogout = () => {
