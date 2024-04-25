@@ -24,7 +24,7 @@ const AdminProfilePage = () => {
     <div className="container mt-5 justify-content-center">
        <div className="row justify-content-center">
        <div className="col-md-8 ">
-      <div className="card">
+      <div className="card  w-75">
         <div className="card-body">
           <div className="row">
             <div className="col-md-12">
@@ -34,9 +34,9 @@ const AdminProfilePage = () => {
               <h2>{user.name}</h2>
               <p className="text-muted">{user.email}</p>
               <div className="d-flex justify-content-between">
-                <Link to="/users" className="btn btn-primary">Usuarios</Link>
-                <Link to="/blogs" className="btn btn-primary">Blogs</Link>
-                <button className="btn btn-danger" onClick={handleLogout}>Cerrar sesión</button>
+                <Link to="/users" className="btn btn-primary mx-2">Usuarios</Link>
+                <Link to="/blogs" className="btn btn-primary mx-2">Blogs</Link>
+                <button className="btn btn-danger mx-2" onClick={handleLogout}>Cerrar sesión</button>
               </div>
             </div>
           </div>
