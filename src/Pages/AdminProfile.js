@@ -35,7 +35,7 @@ const AdminProfilePage = () => {
               <p className="text-muted">{user.email}</p>
               <div className="d-flex justify-content-between">
                 <Link to="/users" className="btn btn-primary mx-2">Usuarios</Link>
-                <Link to="/blogs" className="btn btn-primary mx-2">Blogs</Link>
+                <Link to="/showblogs" className="btn btn-primary mx-2">Blogs</Link>
                 <button className="btn btn-danger mx-2" onClick={handleLogout}>Cerrar sesión</button>
               </div>
             </div>
