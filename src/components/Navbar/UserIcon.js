@@ -16,7 +16,7 @@ const UserIcon = () => {
   const handleIconClick = () => {
     // Si el usuario no está autenticado, redirigir al formulario de inicio de sesión
     if (!user) {
-      window.location.href = '/login';
+      window.location.href = 'https://project-secure-development-front.onrender.com/login';
     } else {
       // Alternamos el estado del menú si el usuario ha iniciado sesión
       setIsMenuOpen(!isMenuOpen);
