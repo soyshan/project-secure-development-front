@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import { registerRequest } from '../api/auth'; // Asegúrate de que la ruta sea correcta
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState('');
   const [recaptchaCompleted, setRecaptchaCompleted] = useState(false);
@@ -27,7 +28,8 @@ const RegisterForm = () => {
       const response = await registerRequest(data); // Utiliza registerRequest en lugar de axios.post
       if (response.status === 200)
       toast.success('¡Registro exitoso!');
-      return <Navigate to="/login" />;
+      navigate('/login');
+     
     } catch (error) {
       setError('Error al registrar el usuario');
     }

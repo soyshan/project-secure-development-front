@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import './UserPage.css';
 axios.defaults.withCredentials = true;
 
+
 const URI = 'https://project-secure-development-back.onrender.com/users/users';
 
 const UserPage = () => {
@@ -43,6 +44,7 @@ const UserPage = () => {
         }
     };
 
+    
     return (
         <div className='container-user'>
             <h1>User List</h1>

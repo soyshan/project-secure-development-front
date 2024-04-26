@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const URI = 'https://project-secure-development-back.onrender.com/blogs';
 
 const CompShowRecetas = () => {
+    const { user } = useAuth();
     const [recetas, setRecetas] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -39,6 +41,10 @@ const CompShowRecetas = () => {
             setCurrentPage(currentPage - 1);
         }
     };
+
+    if (!user) {
+        return <Navigate to="/login" />; // Redirige a la página de inicio de sesión si el usuario no está autenticado
+    }
 
     return (
         <div className='container'>

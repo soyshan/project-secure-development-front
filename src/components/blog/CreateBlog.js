@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
-
-
+import {useNavigate, Navigate} from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext';
 
 const URI = 'https://project-secure-development-back.onrender.com/blogs/'
 
 
 const CompCreateBlog = () => {
+  const { user } = useAuth();
     const [title,setTitle]= useState('')
     const [ingredient, setIngredient]= useState('')
     const [content,setContent]= useState('')
@@ -41,6 +41,11 @@ const CompCreateBlog = () => {
               console.error('Error al crear el post:', error);
             }
           };
+
+          if (!user) {
+            return <Navigate to="/login" />; // Redirige a la página de inicio de sesión si el usuario no está autenticado
+        }
+
           
     return (
       <>
