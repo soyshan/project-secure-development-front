@@ -6,9 +6,7 @@ import axios from 'axios';
 const AdminProfilePage = () => {
   const { user, logout } = useAuth();
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
+
 
   const handleLogout = async () => {
     try {

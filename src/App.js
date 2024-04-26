@@ -17,6 +17,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import ProfilePage from './Pages/Profile';
 import UserPage from './Pages/UserPage';
 import PrivateRoute from './components/PrivateRoute';
+import AdminProfilePage from './Pages/AdminProfile';
 
 function App() {
   const { user } = useAuth();
@@ -34,6 +35,7 @@ function App() {
                 <PrivateRoute path="/create" element={<CompCreateBlog />} />
                 <PrivateRoute path="/edit/:id" element={<CompEditBlog />} />
                 <PrivateRoute path="/profile" element={<ProfilePage />} />
+                <PrivateRoute path="/admin-profile" element={<AdminProfilePage/>} />
               </>
             ) : (
               <>

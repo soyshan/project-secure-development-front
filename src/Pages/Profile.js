@@ -6,11 +6,7 @@ import axios from 'axios';
 const ProfilePage = () => {
   const { user, logout } = useAuth();
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
 
-  
 
   const handleLogout = async () => {
     try {
