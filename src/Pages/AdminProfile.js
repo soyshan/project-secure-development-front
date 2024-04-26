@@ -24,7 +24,7 @@ const AdminProfilePage = () => {
     <div className="container mt-5 justify-content-center">
        <div className="row justify-content-center">
        <div className="col-md-8 ">
-      <div className="card  w-75">
+      <div className="card  w-100">
         <div className="card-body">
           <div className="row">
             <div className="col-md-12">

@@ -68,11 +68,13 @@ const CompEditBlog = () => {
 
   
     return (
-        <div>
-            <h3>Edit post</h3>
+        <>
+        <h3 className= "mt-4">Editar receta </h3>
+        <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '70vh' }}>
+           
             <form onSubmit={update}>
                 <div className="mb-3">
-                    <label className="form-label">Title</label>
+                    <label className="form-label">Titulo</label>
                     <input
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -82,7 +84,7 @@ const CompEditBlog = () => {
                 </div>
 
                 <div className="mb-3">
-                    <label className="form-label">Ingredient</label>
+                    <label className="form-label">Ingredientes</label>
                     <textarea
                         value={ingredient}
                         onChange={(e) => setIngredient(e.target.value)}
@@ -93,7 +95,7 @@ const CompEditBlog = () => {
 
 
                 <div className="mb-3">
-                    <label className="form-label">Content</label>
+                    <label className="form-label">Pasos a seguir</label>
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
@@ -117,6 +119,7 @@ const CompEditBlog = () => {
                 </button>
             </form>
         </div>
+        </>
     );
 };
 

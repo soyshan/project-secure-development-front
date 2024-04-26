@@ -1,14 +1,13 @@
-
-// LoginComponent.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function LoginComponent() {
   const { login } = useAuth();
-  const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -19,8 +18,23 @@ function LoginComponent() {
       login(userData);
       setIsLoggedIn(true);
       console.log("Usuario autenticado:", userData);
+      toast.success("¡Inicio de sesión exitoso!");
     } catch (error) {
-      setError("Credenciales incorrectas");
+      if (error.response) {
+        // El servidor respondió con un código de estado diferente de 2xx
+        const status = error.response.status;
+        if (status === 401) {
+          toast.error("Credenciales incorrectas");
+        } else {
+          toast.error("Ocurrió un error en el servidor");
+        }
+      } else if (error.request) {
+        // La solicitud fue hecha pero no se recibió respuesta
+        toast.error("Error de conexión, inténtalo de nuevo más tarde");
+      } else {
+        // Ocurrió un error antes de hacer la solicitud
+        toast.error("Error al procesar la solicitud");
+      }
     }
   };
 
@@ -30,6 +44,7 @@ function LoginComponent() {
 
   return (
     <section className="vh-100">
+      <ToastContainer />
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
@@ -53,26 +68,26 @@ function LoginComponent() {
                         Iniciar sesión en tu cuenta
                       </h5>
 
-                      {error && <div className="error">{error}</div>}
-
                       <div className="form-outline mb-4">
                         <input
                           type="email"
-                          className="form-control form-control-lg"
+                          className={`form-control form-control-lg ${errors.email ? 'is-invalid' : ''}`}
                           {...register("email", { required: "Email es requerido" })}
                           placeholder="Email"
                         />
-                        {errors.email && <div className="error">{errors.email.message}</div>}
+                        {errors.email && <div className="invalid-feedback">{errors.email.message}</div>}
                       </div>
 
                       <div className="form-outline mb-4">
                         <input
                           type="password"
-                          className="form-control form-control-lg"
+                          className={`form-control form-control-lg ${errors.password ? 'is-invalid' : ''}`}
                           {...register("password", { required: "Contraseña es requerida" })}
                           placeholder="Contraseña"
                         />
-                        {errors.password && <div className="error">{errors.password.message}</div>}
+
+                        {errors.password && <div className="invalid-feedback">{errors.password.message}</div>}
+                        
                       </div>
                       <div className="pt-1 mb-4">
                         <button
