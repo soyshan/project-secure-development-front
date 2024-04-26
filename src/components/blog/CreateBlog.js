@@ -43,10 +43,12 @@ const CompCreateBlog = () => {
           };
           
     return (
-        <div >
-            <h3>
-           Crear post
-            </h3>
+      <>
+       <h3 className="mt-4">
+            Crear post
+              </h3>
+        <div className= "container d-flex align-items-center justify-content-center" style={{ minHeight: '70vh' }}>
+            
             <form onSubmit={store}>
             <div className= 'mb-3'>
                 <label className ='form-label'>Título</label>
@@ -84,6 +86,7 @@ const CompCreateBlog = () => {
             <button type='submit' className='btn btn-primary'>Store</button>
             </form>
         </div>
+        </>
     )
    
 }
