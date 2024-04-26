@@ -1,9 +1,10 @@
 import React from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { useNavigate,Navigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const { user, logout } = useAuth();
 
 
@@ -12,16 +13,16 @@ const ProfilePage = () => {
     try {
       await axios.post('https://project-secure-development-back.onrender.com/auth/logout'); // Realiza una solicitud al endpoint de logout del backend
       logout(); // Llama a la función de logout del contexto de autenticación
-      return <Navigate to="/login" />;
+      navigate('/login');
     } catch (error) {
       console.error('Error during logout:', error);
     }
   };
 
-  if (user.role === 'admin') {
+  if (user && user.role === 'admin') {
     return <Navigate to="/admin-profile" />;
   }
-
+  
 
   return (
     <div className="container mt-5 justify-content-center vh-70">
