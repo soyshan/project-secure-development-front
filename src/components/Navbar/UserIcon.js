@@ -13,6 +13,7 @@ const UserIcon = () => {
 
   const handleLogout = () => {
     logout(); // Llamamos a la función logout del contexto de autenticación
+    navigate('/login');
   };
 
   const handleIconClick = () => {

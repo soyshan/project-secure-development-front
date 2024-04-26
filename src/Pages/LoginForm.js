@@ -18,7 +18,7 @@ function LoginComponent() {
       login(userData);
       setIsLoggedIn(true);
       console.log("Usuario autenticado:", userData);
-      toast.success("¡Inicio de sesión exitoso!");
+      
     } catch (error) {
       if (error.response) {
         // El servidor respondió con un código de estado diferente de 2xx
