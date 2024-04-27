@@ -1,6 +1,45 @@
 
-.container-users {
-    justify-content: space-between;
-    align-items: center;
+
+/* Agrega un estilo para hacer que la tabla sea responsive */
+.table-responsive {
+    overflow-x: auto;
 }
-  
+
+/* Agrega estilos para el contenedor principal */
+.container-user {
+    padding: 20px;
+
+}
+
+/* Estilos para la paginación */
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%; /* Ajusta el ancho de la tabla al contenedor */
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: 1px solid #ffffff;
+    text-align: left;
+}
+
+
+
+/* Media query para dispositivos pequeños */
+@media (max-width: 768px) {
+    .container-user {
+        padding: 10px;
+    }
+}

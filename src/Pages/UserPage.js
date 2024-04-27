@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 import { useAuth } from '../context/AuthContext';
 import './UserPage.css';
+import { Navigate} from 'react-router-dom'; 
 axios.defaults.withCredentials = true;
 
 
@@ -44,49 +45,52 @@ const UserPage = () => {
         }
     };
 
+    if (!user || user.role !== 'admin') {
+        return <Navigate to="/login" />;
+    }
+
     
     return (
-        <div className='container-user'>
-            <h1>User List</h1>
-            {user && user.admin ? ( // Verifica si hay un usuario autenticado y si es un administrador
-                <div>
-                    <table className='table'>
-                        <thead className='table-primary'>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.map((user) => (
-                                <tr key={user._id}>
-                                    <td>{user.firstName}</td>
-                                    <td>{user.lastName}</td>
-                                    <td>{user.username}</td>
-                                    <td>{user.email}</td>
-                                    <td>
-                                        <button onClick={() => deleteUser(user._id)} className='btn btn-danger'>
-                                            Delete
-                                        </button>
-                                    </td>
+            <div className='container-user'>
+                <h1>Usuarios</h1>
+                <div className="table-container">
+                    <div className="table-responsive">
+                        <table className='table'>
+                            <thead className='table-primary'>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Nombre de Usuario</th>
+                                    <th>Email</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {users.map((user) => (
+                                    <tr key={user._id}>
+                                        <td>{user.firstName}</td>
+                                        <td>{user.lastName}</td>
+                                        <td>{user.username}</td>
+                                        <td>{user.email}</td>
+                                        <td>
+        
+                                            <button onClick={() => deleteUser(user._id)} className='btn btn-danger'>
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                     <div className="pagination-container">
                         <button onClick={prevPage} className="btn btn-primary" disabled={currentPage === 1}>Previous</button>
                         <span> Page {currentPage} </span>
                         <button onClick={nextPage} className="btn btn-primary">Next</button>
                     </div>
                 </div>
-            ) : (
-                <p>Only administrators can view the user list.</p>
-            )}
-        </div>
-    );
-};
+            </div>
+        );
+    };
 
 export default UserPage;
