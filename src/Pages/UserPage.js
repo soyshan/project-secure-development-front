@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuth } from '../context/AuthContext';
 import './UserPage.css';
 import { Navigate} from 'react-router-dom'; 
-axios.defaults.withCredentials = true;
+
 
 
 const URI = 'https://project-secure-development-back.onrender.com/users/users';
