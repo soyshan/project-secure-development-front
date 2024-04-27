@@ -17,7 +17,7 @@ import {AuthProvider} from './context/AuthContext';
 import ProfilePage from './Pages/Profile';
 import AdminProfilePage from './Pages/AdminProfile';
 import UserPage from './Pages/UserPage';
-
+import AddUserForm from './Pages/AddUser';
 
 function App() {
   return (
@@ -39,6 +39,7 @@ function App() {
           <Route path= "/profile" element = {<ProfilePage />} />
           <Route path= "/admin-profile" element = {<AdminProfilePage />} />
           <Route path= "/users" element = {<UserPage />} />
+          <Route path= "/add-user" element = {<AddUserForm/>} />
         </Routes>
         <Footer />
         </AuthProvider>

@@ -34,7 +34,7 @@ const Carousel = () => {
           </Link>
         </div>
         <div className="carousel-item">
-        <Link to="http://https://project-secure-development-front.onrender.com/blogs/6617d58b8e84e79548330a88">
+        <Link to="https://https://project-secure-development-front.onrender.com/blogs/6617d58b8e84e79548330a88">
           <img src={rollos} className="d-block w-100" alt="Third slide" style={{ maxHeight: '500px', objectFit: 'cover' }} />
           <div className="carousel-caption d-none d-md-block">
           <h4 className="caption-style">Descubre el Sabor Único del Gimbap <br/> Un plato tradicional de Corea</h4>

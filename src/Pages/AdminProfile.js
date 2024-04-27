@@ -13,7 +13,7 @@ const AdminProfilePage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://project-secure-development-back.onrender.com/auth/logout');
+      await axios.post('http://localhost:8000/auth/logout');
       logout();
       return <Navigate to="/login" />;
     } catch (error) {

@@ -10,7 +10,7 @@ const BlogDetailPage = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get(`https://project-secure-development-back.onrender.com/blogs/${id}`);
+                const response = await axios.get(`http://localhost:8000/blogs/${id}`);
                 setBlog(response.data);
             } catch (error) {
                 console.error('Error fetching blog:', error);
@@ -38,7 +38,7 @@ const BlogDetailPage = () => {
                     ))}
                 </ul>
             </div>
-            <img src={`https://project-secure-development-back.onrender.com/${blog.image_url}`} alt={blog.title} className="centered" />
+            <img src={`http://localhost:8000/${blog.image_url}`} alt={blog.title} className="centered" />
             <p className="centered">{blog.content}</p> 
           
 

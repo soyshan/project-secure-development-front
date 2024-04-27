@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-const URI = 'https://project-secure-development-back.onrender.com/blogs';
+const URI = 'http://localhost:8000/blogs';
 
 const CompShowRecetas = () => {
     const { user } = useAuth();
@@ -70,7 +70,7 @@ const CompShowRecetas = () => {
                                     <td>{receta.ingredient}</td>
                                     <td>{receta.content}</td>
                                     <td>
-                                        <img src={`https://project-secure-development-back.onrender.com/${receta.image_url}`} alt="receta" style={{ maxWidth: "100px", maxHeight: "100px" }}  />
+                                        <img src={`http://localhost:8000/${receta.image_url}`} alt="receta" style={{ maxWidth: "100px", maxHeight: "100px" }}  />
                                     </td>
                                     <td>
                                         <Link to={`/edit/${receta._id}`} className="btn btn-info">

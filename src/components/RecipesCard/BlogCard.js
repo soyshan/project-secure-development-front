@@ -22,7 +22,7 @@ const BlogCard = ({ blog }) => {
         <div className='col-md-4 mt-5'>
             <div className='card mb-4'>
             <img
-                    src={`https://project-secure-development-back.onrender.com/${blog.image_url}`}
+                    src={`http://localhost:8000/${blog.image_url}`}
                     className='card-img-top'
                     alt={blog.title}
                     style={{ width: '100%', height: '200px', objectFit: 'contain' }} // 

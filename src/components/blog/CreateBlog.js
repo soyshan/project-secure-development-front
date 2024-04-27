@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {useNavigate, Navigate} from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext';
 
-const URI = 'https://project-secure-development-back.onrender.com/blogs/'
+const URI = 'http://localhost:8000/blogs/'
 
 
 const CompCreateBlog = () => {

@@ -11,7 +11,7 @@ const ProfilePage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://project-secure-development-back.onrender.com/auth/logout'); // Realiza una solicitud al endpoint de logout del backend
+      await axios.post('http://localhost:8000/auth/logout'); // Realiza una solicitud al endpoint de logout del backend
       logout(); // Llama a la función de logout del contexto de autenticación
       navigate('/login');
     } catch (error) {
