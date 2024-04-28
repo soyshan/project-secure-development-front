@@ -3,7 +3,7 @@
 [![CSS](https://img.shields.io/badge/-CSS-blue?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?style=flat-square&logo=javascript&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![React](https://img.shields.io/badge/-React-blue?style=flat-square&logo=react&logoColor=white)](https://reactjs.org/) [![Node.js](https://img.shields.io/badge/-Node.js-green?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
 
 
-## Descripción
+## Descripción 📋
 Este proyecto es una versión ampliada de un trabajo anterior de una página de recetas asiáticas.
 En esta versión se ha implementado el login y algunas medidas de seguridad. 
 ![alt text](../front/src/assets/websiteimage.png)
@@ -17,8 +17,19 @@ Además, los formularios están ligados con la base de datos de Mongo Atlas.
 El back se puede ver a través de este enlace:  https://github.com/soyshan/project-secure-development-back
 
 
+## Objetivos del proyecto ✅
+El objetivo principal del proyecto es desarrollar una página segura. 
 
-## Instalación del proyecto
+Para ello se han implementado algunas medidas de seguridad, como limite de sesiones por IP, protección contra XSS al implementar la sanitización en el formulario de contacto.
+También se han usado middlewares en el back.
+
+Se ha hecho también una auditoria completa de la seguridad de la página web para detectar las posibles vulnerabilidades para poder corregirlas.
+
+Enlace para ver la auditoria completa: 
+https://docs.google.com/document/d/1_0k_B6gs6UGjpiSYUvJ6hinDE_QxeSpV6fPCE3Jm8hY/edit?usp=sharing
+
+
+## Instalación del proyecto 🛠
 Si te descargas el proyecto debes asegurarté de tener instalado Node.js.
 Si no tienes node, debes ir a descargarlo a su página 👉https://nodejs.org/en
 
@@ -35,37 +46,14 @@ para inicializar el proyecto
 **npm start** 
 
 
-## Objetivos
-El objetivo principal del proyecto es desarrollar una página segura. 
-
-Para ello se han implementado algunas medidas de seguridad, como limite de sesiones por IP, protección contra XSS al implementar la sanitización en el formulario de contacto.
-También se han usado middlewares en el back.
-
-Se ha hecho también una auditoria completa de la seguridad de la página web para detectar las posibles vulnerabilidades para poder corregirlas.
-
-Enlace para ver la auditoria completa: 
 
 
 
-## Mi contacto
+## Mi contacto 📧
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/tu-nombre/)](https://www.linkedin.com/in/shanshan-bu/)   [![Email](https://img.shields.io/badge/-Email-blue?style=flat-square&logo=mail.ru&logoColor=white)](mailto:shanbu131@gmail.com)
 
 ![Gato](https://media1.tenor.com/m/29Ok5pc0ivAAAAAd/gatinho-gato.gif)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
