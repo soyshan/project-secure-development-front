@@ -22,7 +22,7 @@ const BlogCard = ({ blog }) => {
         <div className='col-md-4 mt-5'>
             <div className='card mb-4'>
             <img
-                    src={`http://localhost:8000/${blog.image_url}`}
+                    src={`https://project-secure-development-back.onrender.com/${blog.image_url}`}
                     className='card-img-top'
                     alt={blog.title}
                     style={{ width: '100%', height: '200px', objectFit: 'contain' }} // 
@@ -30,7 +30,7 @@ const BlogCard = ({ blog }) => {
                 <div className='card-body'>
                     <h5 className='card-title'>{blog.title}</h5>
                     <p className='card-text'>{limitedContent}</p>
-                    <Link to={`/blogs/${blog.id}`} className='btn btn-primary'>Ver receta completa</Link> 
+                    <Link to={`/blogs/${blog._id}`} className='btn btn-primary'>Ver receta completa</Link> 
                 </div>
             </div>
         </div>
@@ -38,9 +38,3 @@ const BlogCard = ({ blog }) => {
 };
 
 export default BlogCard;
-
-
-
-
-
-

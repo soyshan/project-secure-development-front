@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'
 
-const URI = 'http://localhost:8000/blogs/';
+const URI = 'https://project-secure-development-back.onrender.com/blogs/';
 
 const CompEditBlog = () => {
+    const { user } = useAuth();
     const [title, setTitle] = useState('');
     const [ingredient, setIngredient] = useState('');
     const [content, setContent] = useState('');
@@ -12,29 +14,33 @@ const CompEditBlog = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-   
+    useEffect(() => {
+        // Verifica si el usuario está autenticado antes de cargar los datos del blog
+        if (!user) {
+            // Si el usuario no está autenticado, redirige a la página de inicio de sesión
+            navigate('/login');
+        } else {
+            const getBlogById = async () => {
+                try {
+                    const res = await axios.get(`${URI}/${id}`);
+                    setTitle(res.data.title);
+                    setIngredient(res.data.ingredient);
+                    setContent(res.data.content);
+                    setImage(res.data.image_url);
+                } catch (error) {
+                    console.error('Error al obtener el blog:', error);
+                }
+            };
+    
+            getBlogById(); 
+        }
+    }, [id, user, navigate]);
+
     const handleImageChange = (e) => {
         const selectedFile = e.target.files[0];
-        console.log('Archivo seleccionado:', selectedFile);
         setImage(selectedFile);
     };
-    
 
-    useEffect(() => {
-        const getBlogById = async () => {
-            try {
-                const res = await axios.get(`${URI}${id}`);
-                setTitle(res.data.title);
-                setIngredient(res.data.ingredient);
-                setContent(res.data.content);
-                setImage(res.data.image_url);
-            } catch (error) {
-                console.error('Error al obtener el blog:', error);
-            }
-        };
-
-        getBlogById(); 
-    }, [id]);
 
     const update = async (e) => {
         e.preventDefault();
@@ -48,7 +54,7 @@ const CompEditBlog = () => {
         console.log('Datos a enviar:', formData); // 
     
         try {
-            await axios.put(`${URI}${id}`, formData, {
+            await axios.put(`${URI}/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -62,11 +68,13 @@ const CompEditBlog = () => {
 
   
     return (
-        <div>
-            <h3>Edit post</h3>
+        <>
+        <h3 className= "mt-4">Editar receta </h3>
+        <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '70vh' }}>
+           
             <form onSubmit={update}>
                 <div className="mb-3">
-                    <label className="form-label">Title</label>
+                    <label className="form-label">Titulo</label>
                     <input
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -76,7 +84,7 @@ const CompEditBlog = () => {
                 </div>
 
                 <div className="mb-3">
-                    <label className="form-label">Ingredient</label>
+                    <label className="form-label">Ingredientes</label>
                     <textarea
                         value={ingredient}
                         onChange={(e) => setIngredient(e.target.value)}
@@ -87,7 +95,7 @@ const CompEditBlog = () => {
 
 
                 <div className="mb-3">
-                    <label className="form-label">Content</label>
+                    <label className="form-label">Pasos a seguir</label>
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
@@ -111,6 +119,7 @@ const CompEditBlog = () => {
                 </button>
             </form>
         </div>
+        </>
     );
 };
 

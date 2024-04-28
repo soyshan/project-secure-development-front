@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Navigate} from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext';
 
-
-
-const URI = 'http://localhost:8000/blogs/'
+const URI = 'https://project-secure-development-back.onrender.com/blogs/'
 
 
 const CompCreateBlog = () => {
+  const { user } = useAuth();
     const [title,setTitle]= useState('')
-    const [ingredient,setIngredient]= useState('')
+    const [ingredient, setIngredient]= useState('')
     const [content,setContent]= useState('')
     const [image, setImage] = useState(null);
 
@@ -26,7 +26,7 @@ const CompCreateBlog = () => {
           
             const formData = new FormData();
             formData.append('title', title);
-            formData.append('ingredient', setIngredient);
+            formData.append('ingredient', ingredient);
             formData.append('content', content);
             formData.append('image_url', image);
           
@@ -41,12 +41,19 @@ const CompCreateBlog = () => {
               console.error('Error al crear el post:', error);
             }
           };
+
+          if (!user) {
+            return <Navigate to="/login" />; // Redirige a la página de inicio de sesión si el usuario no está autenticado
+        }
+
           
     return (
-        <div >
-            <h3>
-           Crear post
-            </h3>
+      <>
+       <h3 className="mt-4">
+            Crear post
+              </h3>
+        <div className= "container d-flex align-items-center justify-content-center" style={{ minHeight: '70vh' }}>
+            
             <form onSubmit={store}>
             <div className= 'mb-3'>
                 <label className ='form-label'>Título</label>
@@ -84,6 +91,7 @@ const CompCreateBlog = () => {
             <button type='submit' className='btn btn-primary'>Store</button>
             </form>
         </div>
+        </>
     )
    
 }
