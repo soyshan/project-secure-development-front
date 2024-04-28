@@ -7,7 +7,7 @@
 Este proyecto es una versión ampliada de un trabajo anterior de una página de recetas asiáticas.
 En esta versión se ha implementado el login y algunas medidas de seguridad. 
 ![Imagen de la Home de una pagina de recetas]([../front/src/assets/websiteimage.png](https://raw.githubusercontent.com/soyshan/project-secure-development-front/main/src/assets/websiteimage.png
-))
+)
 
 Este es el front del proyecto CRUD con React.js que permite crear, leer, actualizar y eliminar recetas de comida asiática.
 
